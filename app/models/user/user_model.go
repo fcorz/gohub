@@ -9,10 +9,10 @@ import (
 type User struct {
 	models.BaseModel
 
-	Name     string `json:"name,omitempty"`
-	Email    string `json:"-"`
-	Phone    string `json:"-"`
-	Password string `json:"-"`
+	Name     string `gorm:"not null;default:'';comment:用户姓名" json:"name,omitempty"`
+	Email    string `gorm:"not null;default:'';comment:邮箱" json:"-"`
+	Phone    string `gorm:"not null;default:'';comment:电话" json:"-"`
+	Password string `gorm:"not null;default:'';comment:密码" json:"-"`
 
 	models.CommonTimestampsField
 }
